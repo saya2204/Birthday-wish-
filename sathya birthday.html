@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday My Love ❤️</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#4dffe7,#8fc9ff,#c2e2ff);
+font-family:Arial;
+}
+
+.card{
+text-align:center;
+color:white;
+z-index:10;
+}
+
+h1{
+font-size:45px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{ text-shadow:0 0 10px white; }
+to{ text-shadow:0 0 35px white; }
+}
+
+img{
+width:250px;
+height:320px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 0 25px rgb(255, 255, 255);
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+margin-top:15px;
+}
+
+#message{
+font-size:22px;
+margin-top:20px;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:25px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0);
+opacity:1;
+}
+100%{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="song.m3.mht" type="audio/mpeg">
+</audio>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday mama❤️</h1>
+
+<img id="slide" src="img1.png.jpeg">
+
+<br>
+
+<button onclick="surprise()">
+Open Surprise 🎁
+</button>
+
+<div id="message"></div>
+
+</div>
+
+<script>
+const photos=[
+"img1.png.jpeg",
+"img2.png.jpeg",
+"img3.png.jpeg",
+"img4.png.jpeg"
+];
+
+let i=0;
+
+setInterval(()=>{
+i=(i+1)%photos.length;
+document.getElementById("slide").src=photos[i];
+},2500);
+
+function surprise(){
+document.getElementById("message").innerHTML=
+"❤️ Happy Birthday My Love ❤️<br><br>Happiest born day mama ..nee enaku ithuvara proper propose panathu illa ippo naan kekuren will you marry me..!";
+
+for(let j=0;j<50;j++){
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},10000);
+}
+}
+</script>
+
+</body>
+</html>
